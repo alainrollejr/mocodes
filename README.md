@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/alainrollejr/mocodes">
-    <img src="https://github.com/alainrollejr/mocodes/mocodeslogo.png" alt="Logo" width="200" height="200">
+    <img src="https://github.com/alainrollejr/mocodes/blob/main/mocodeslogo.png" alt="Logo" width="200" height="200">
   </a>
 
   <h1 align="center">MoCodes</h1>
