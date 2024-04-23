@@ -575,28 +575,10 @@ struct Tensor3D:
             self.cnpu_5()
         elif self.dim0 == 6:
             self.cnpu_6()
-        elif self.dim0 == 7:
-            self.cnpu_7()
         elif self.dim0 == 8:
             self.cnpu_8()
-        elif self.dim0 == 9:
-            self.cnpu_9()
         elif self.dim0 == 10:
             self.cnpu_10()
-        elif self.dim0 == 11:
-            self.cnpu_11()
-        elif self.dim0 == 12:
-            self.cnpu_12()
-        elif self.dim0 == 13:
-            self.cnpu_13()
-        elif self.dim0 == 14:
-            self.cnpu_14()
-        elif self.dim0 == 15:
-            self.cnpu_15()
-        elif self.dim0 == 16:
-            self.cnpu_16()
-        elif self.dim0 == 32:
-            self.cnpu_32()
         else:
             assert_true(False, "unsupported CNPU size")
 
