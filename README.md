@@ -24,7 +24,7 @@ Error Correction Codes are being used in domains such as Wireless Communication 
 
 In recent years with the advent of wide-vector SIMD CPU architectures and affordable yet powerful GPU cores they have been also implemented in C++ with a lot of vendor-specific intrinsics on CPU or with CUDA on GPU as well.
 
-About time then to take a stab at how well Mojo lives up to the challenge (and how well the author lives up to the challenge of understanding how Mojo is meant to be used)
+About time then to take a stab at how well Mojo lives up to the challenge (and how well the authors live up to the challenge of understanding how Mojo is meant to be used)
 
 ## Benchmark
 
