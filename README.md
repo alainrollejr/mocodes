@@ -59,12 +59,13 @@ You can tweak the following parameters in the main() function of [types.mojo](ht
 
 ### v1.0 ✅
 - [x] support for irregular LDPC decoding
-- [x] Add profiling and additional performance tests
+- [x] support for (batch) early stopping
+
 
 ### v1.1 (WIP)
 - [ ] Improve throughput (target: factor 2) by community expertise injection 
-- [ ] Add profiling and additional performance tests
 - [ ] Add a serving functionality (preferably gRPC based, ideally leveraging MAX serving)
+- [ ] Add profiling and proper benchmarking tests
 
 
 ### v1.2
