@@ -85,7 +85,7 @@ You can tweak the following parameters in the main() function of [types.mojo](ht
 ## Contributing
 
 The way we set this repo up should allow Mojo experts to contribute without necessarily being Error Correction Coding specialists.
-Notably, the LDPC heavy lifting is done by a handful of functions in [types.mojo](https://github.com/alainrollejr/mocodes/blob/main/mdpc/types.mojo), i.e. *fn all_Lqij()* and *fn cnpu()*.
+Notably, the LDPC heavy lifting is done by a handful of functions in [types.mojo](https://github.com/alainrollejr/mocodes/blob/main/ldpc/types.mojo), i.e. *fn all_Lqij()* and *fn cnpu()*.
 Memory load and store at this point seem to determine the throughput so all tips and tricks to speed up that memory access would much appreciated, along with any other improvements that can be spotted by expert *Mojicans*. 
 
 If you are considering larger contributions, feel free to contact us for a smoother communication channel on Discord. If you find a bug or have an idea for a feature, please use our issue tracker. Before creating a new issue, please:
