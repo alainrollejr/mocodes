@@ -34,7 +34,7 @@ We've been on a voyage of  exploration to find out how platform-independent fram
 
 While that looks awesome we estimate that there is a performance gap of about a factor 2 yet to be closed wrt C++ code that uses vendor specific intrinsics eg from the avx instruction set on Intel. Game on !
 
-For now we only support generic (ir)regular  LDPC codes and we have committed just one example (1512 x 1872) LDPC Parity Check Matrix to this repo. This sparse parity check matrix has 7092 non-zero elements and is shown hereafter.
+For now we only support generic (ir)regular  LDPC codes with *embarrassingly parallel* flooding decoding. We have committed just one example (1512 x 1872) LDPC Parity Check Matrix to this repo. This sparse parity check matrix has 7092 non-zero elements and is shown hereafter.
 
 ![ldpc_pcm](https://github.com/alainrollejr/mocodes/blob/main/codebook/example_pcm.png)
 
@@ -51,7 +51,7 @@ mojo build ldpcdec.mojo
 ```
 ./ldpcdec
 ```
-You can tweak the following parameters in the main() function of ldpcdec.mojo: "intra_codeword_parallellism_factor", "ncodewordperthread", "nthread". Currently committed defaults seem to be close to optimal regardless the platform we have tried. 
+You can tweak the following parameters in the main() function of [types.mojo](https://github.com/alainrollejr/mocodes/blob/main/types.mojo): *intra_codeword_parallellism_factor, ncodewordperthread, nthread*. Currently committed defaults seem to be close to optimal regardless the platform we have tried. 
 
 
 
@@ -62,22 +62,30 @@ You can tweak the following parameters in the main() function of ldpcdec.mojo: "
 - [x] Add profiling and additional performance tests
 
 ### v1.1 (WIP)
-- [ ] Improve throughput by community expertise injection (target: factor 2)
+- [ ] Improve throughput (target: factor 2) by community expertise injection 
 - [ ] Add profiling and additional performance tests
 - [ ] Add a serving functionality (preferably gRPC based, ideally leveraging MAX serving)
 
 
-### v1.2 (WIP)
+### v1.2
 - [ ] incorporate generation of Look-Up Tables in the mojo code, such that the .npz file becomes the only configuration input that defines the code
 - [ ] add an LDPC encoder
 - [ ] add a script to simulate and visualise BER and BLER codes
 - [ ] Autotuning and related features
 
+### Longer Term
+- [ ] Add polar codes
+- [ ] Add Reed-Solomon codes
+- [ ] Add CRC check codes
+- [ ] Add layered LDPC decoding
+
+
 
 ## Contributing
 
 The way we set this repo up should allow Mojo experts to contribute without necessarily being Error Correction Coding specialists.
-Notably, the LDPC heavy lifting is done by a handful of functions in [!heavy](https://github.com/alainrollejr/mocodes/blob/main/mdpc/types.mojo), i.e. fn all_Lqij() and fn cnpu(). Memory load and store determine the throughput so all tips and tricks to speed up that memory access would much appreciated. 
+Notably, the LDPC heavy lifting is done by a handful of functions in [types.mojo](https://github.com/alainrollejr/mocodes/blob/main/mdpc/types.mojo), i.e. *fn all_Lqij()* and *fn cnpu()*.
+Memory load and store at this point seem to determine the throughput so all tips and tricks to speed up that memory access would much appreciated. 
 
 If you are considering larger contributions, feel free to contact us for a smoother communication channel on Discord. If you find a bug or have an idea for a feature, please use our issue tracker. Before creating a new issue, please:
 * Check if the issue already exists. If an issue is already reported, you can contribute by commenting on the existing issue.
