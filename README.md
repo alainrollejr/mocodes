@@ -34,7 +34,7 @@ We've been on a voyage of  exploration to find out how platform-independent fram
 
 While that looks awesome we estimate that there is a performance gap of about a factor 2 yet to be closed wrt C++ code that uses vendor specific intrinsics eg from the avx instruction set on Intel. Game on !
 
-For now we only support generic (ir)regular  LDPC codes with *embarrassingly parallel* flooding decoding. We have committed just one example (1512 x 1872) LDPC Parity Check Matrix to this repo. This sparse parity check matrix has 7092 non-zero elements and is shown hereafter.
+For now we only support generic (ir)regular  LDPC codes with *embarrassingly parallel* flooding batch decoding. We have committed just one example (1512 x 1872) LDPC Parity Check Matrix to this repo. This sparse parity check matrix has 7092 non-zero elements and is shown hereafter.
 
 ![ldpc_pcm](https://github.com/alainrollejr/mocodes/blob/main/codebook/example_pcm.png)
 
@@ -71,7 +71,7 @@ You can tweak the following parameters in the main() function of [types.mojo](ht
 ### v1.2
 - [ ] incorporate generation of Look-Up Tables in the mojo code, such that the .npz file becomes the only configuration input that defines the code
 - [ ] add an LDPC encoder
-- [ ] add a script to simulate and visualise BER and BLER codes
+- [ ] add a script to simulate and visualise BER and BLER curves
 - [ ] Autotuning and related features
 
 ### Longer Term
@@ -86,7 +86,7 @@ You can tweak the following parameters in the main() function of [types.mojo](ht
 
 The way we set this repo up should allow Mojo experts to contribute without necessarily being Error Correction Coding specialists.
 Notably, the LDPC heavy lifting is done by a handful of functions in [types.mojo](https://github.com/alainrollejr/mocodes/blob/main/mdpc/types.mojo), i.e. *fn all_Lqij()* and *fn cnpu()*.
-Memory load and store at this point seem to determine the throughput so all tips and tricks to speed up that memory access would much appreciated. 
+Memory load and store at this point seem to determine the throughput so all tips and tricks to speed up that memory access would much appreciated, along with any other improvements that can be spotted by expert *Mojicans*. 
 
 If you are considering larger contributions, feel free to contact us for a smoother communication channel on Discord. If you find a bug or have an idea for a feature, please use our issue tracker. Before creating a new issue, please:
 * Check if the issue already exists. If an issue is already reported, you can contribute by commenting on the existing issue.
@@ -100,7 +100,7 @@ If you are considering larger contributions, feel free to contact us for a smoot
 4. Push to the Branch
 5. Open a Pull Request
 > Once your changes are pushed, navigate to your fork on GitHub. And create a pull request against the original  repository.
-> - Before creating a PR make sure the functional text output of ./ldpcdec is the same as the one on the main branch
+> - Before creating a PR make sure the functional text output of ./ldpcdec is the same as the one on the main branch, i.e the batch syndrome on the all-zeros codewords should stay zero and the logit output values should all still equal 127.
 > - In the pull request, provide a detailed description of the changes and why they're needed. Link any relevant issues.
 
 
