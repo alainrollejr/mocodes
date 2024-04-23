@@ -1,6 +1,6 @@
 from sys.info import simdwidthof
 from codebook.luts import nc,nnz, ncnpu, nvnpu,  vnpu_sizes, vnpu_indices, cnpu_sizes, cnpu_indices
-from mdpc.types import nelts,dtype,Tensor3D, parallel_decode
+from ldpc.types import nelts,dtype,Tensor3D, parallel_decode
 from tensor import Tensor, TensorSpec, TensorShape
 from random import rand, seed
 from sys.info import num_physical_cores, num_logical_cores, num_performance_cores
