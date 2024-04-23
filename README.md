@@ -105,7 +105,7 @@ If you are considering larger contributions, feel free to contact us for a smoot
 
 ## License
 
-Distributed under the Apache 2.0 License with LLVM Exceptions. See LLVM [License](https://llvm.org/LICENSE.txt) for more information.
+Distributed under the Apache 2.0 License.
 
 ## Acknowledgements
 
